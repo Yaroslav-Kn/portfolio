@@ -18,21 +18,39 @@
 ## Структура репозитория
 Репозиторий имеет следующую структуру
 ├── [src](src)
+
 │    ├── [dags](src/dags)           		<- Папка с дагами
+
 │    │    ├── [dag_orders_restaurants.py](src/dags/dag_orders_restaurants.py) <- **Файл дага** для построения витрины по ресторанам
+
 │    │    ├── [dag_deliveries.py](src/dags/dag_deliveries.py) <- **Файл дага** для построения витрины по доставщикам
+
 │    │    ├── [lib](src/dags/lib)        		<- Папка с библиотеками для функционирования бизнес логики (БЛ)
+
 │    │    │  
+
 │    │    ├── [orders_restaurants](src/dags/orders_restaurants)          <- Папка с БЛ для функционирования дага для построения витрины по ресторанам
+
 │    │    │    ├── [ddl](src/dags/orders_restaurants/ddl)     		<- Папка с БЛ для инициализации схем и таблиц для данного дага
+
 │    │    │    │    ├── [scripts_ddl](src/dags/orders_restaurants/ddl/scripts_ddl)  	<- Папка со скриптами создания схем и таблиц
+
 │    │    │    ├── [stg](src/dags/orders_restaurants/stg) 			<- Папка с БЛ для получения данных из источников для stg слоя
+
 │    │    │    ├── [dds](src/dags/orders_restaurants/dds) 			<- Папка с БЛ для заполнения dds слоя
+
 │    │    │    ├── [cdm](src/dags/orders_restaurants/cdm) 				<- Папка с БЛ для заполнения создания витрины
+
 │    │    │  
+
 │    │    ├── [deliveries](src/dags/deliveries)        	<- Папка с БЛ для функционирования дага для построения витрины доставки
+
 │    │    │    ├── [ddl](src/dags/deliveries/ddl)     		<- Папка с БЛ для инициализации схем и таблиц для данного дага
+
 │    │    │    │    ├── [scripts_ddl](src/dags/deliveries/ddl/scripts_ddl) 	<- Папка со скриптами создания схем и таблиц
+
 │    │    │    ├── [stg](src/dags/deliveries/stg)  			<- Папка с БЛ для получения данных из источников для stg слоя
+
 │    │    │    ├── [dds](src/dags/deliveries/dds)  			<- Папка с БЛ для заполнения dds слоя
+
 │    │    │    ├── [cdm](src/dags/deliveries/cdm)  				<- Папка с БЛ для заполнения создания витрины
