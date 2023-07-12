@@ -30,7 +30,7 @@ RFM (от англ. Recency, Frequency, Monetary Value) — способ сег�
 * [rfm_ddl.sql](rfm_ddl.sql) - создаёт таблицы в схеме analysis, необходимые для работы витрины в части модели RFM
 * [orders_view.sql](orders_view.sql) - создаёт представления для работы с заказами (в случае изменения работы таблицы orders на журналируемую версию)
 * [datamart_ddl.sql](datamart_ddl.sql) - создаёт таблицу с витриной в схеме analysis
-* [tmp_rfm_frequency.sql] (tmp_rfm_frequency.sql) - заполняет таблицу tmp_rfm_frequency
-* [tmp_rfm_monetary_value.sql] (tmp_rfm_monetary_value.sql) - заполняет таблицу tmp_rfm_monetary_value
-* [tmp_rfm_recency.sql] (tmp_rfm_recency.sql) - заполняет таблицу tmp_rfm_recency
-* [datamart_query.sql] (datamart_query.sql) - заполняет итоговую витрину
+* [tmp_rfm_frequency.sql](tmp_rfm_frequency.sql) - заполняет таблицу tmp_rfm_frequency
+* [tmp_rfm_monetary_value.sql](tmp_rfm_monetary_value.sql) - заполняет таблицу tmp_rfm_monetary_value
+* [tmp_rfm_recency.sql](tmp_rfm_recency.sql) - заполняет таблицу tmp_rfm_recency
+* [datamart_query.sql](datamart_query.sql) - заполняет итоговую витрину
