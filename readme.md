@@ -28,3 +28,4 @@
 | [Создание витрины RFM](datamart_rfm) | Создание витрины для сегментации клиентов по модели RFM| *SQL*|
 | [Миграция данных доставки](shipping_migrations) | Миграция данных из широкой таблицы и создание витрины данных по доставке| *SQL*|
 | [Создание Дагов Airflow для DWH на нескольких источниках данных](dwh_order_deliveries) | Разработка дагов Airflow для создания и наполнения DWH на нескольких источниках данных (PostgreSQL, Mongo-DB, API)| *Airflow*, *SQL*, *NoSQL*, *requests*, *psycopg*|
+| [Создание Data Lake](data_lake) |Разработка Data Lake при помощи PySpark. Создание витрин и обеспечение автоматизации|*hadoop*, *PySpark*, *HDFS*, *Airflow*|
