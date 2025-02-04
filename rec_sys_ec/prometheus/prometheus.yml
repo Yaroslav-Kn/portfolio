@@ -1,0 +1,21 @@
+global:
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  
+
+scrape_configs:
+  - job_name: 'scrapping-events_serviece'
+    metrics_path: /metrics
+    scheme: http
+    
+    static_configs:
+    - targets:
+      - events_service:8010
+
+  - job_name: 'scrapping-recommendation_service'
+    metrics_path: /metrics
+    scheme: http
+    
+    static_configs:
+    - targets:
+      - recommendation_service:8020

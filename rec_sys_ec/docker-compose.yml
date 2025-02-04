@@ -1,0 +1,41 @@
+services:
+  events_service:
+    build: 
+      dockerfile: ./service/events_service/Dockerfile
+    image: events_service
+    container_name: events_service
+    restart: always
+    env_file:
+      - ./not-dev.env
+    ports:
+      - "${EVENTS_OUT_PORT}:${EVENTS_PORT}"
+
+  recommendation_service:
+    build: 
+      dockerfile: ./service/recommendation_service/Dockerfile
+    image: recommendation_service
+    container_name: recommendation_service
+    restart: always
+    env_file:
+      - ./not-dev.env
+    ports:
+      - "${RECOMMENDATIONS_OUT_PORT}:${RECOMMENDATIONS_PORT}"
+
+  prometheus:
+    image: prom/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - 9090:9090
+    volumes:
+      - "./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
+      
+  grafana:
+        image: grafana/grafana
+        env_file:
+        - ./.env
+        ports:
+        - 3000:3000
+        environment:
+        - GF_SECURITY_ADMIN_USER=${GRAFANA_USER}
+        - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASS}

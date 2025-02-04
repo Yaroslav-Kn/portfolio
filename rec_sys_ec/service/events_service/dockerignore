@@ -1,0 +1,7 @@
+.venv
+.venv*
+env/
+venv/
+venv*/
+.venv_ml_service/
+__pycache__/
