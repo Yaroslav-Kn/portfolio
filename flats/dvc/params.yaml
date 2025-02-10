@@ -1,0 +1,4 @@
+index_col: 'flat_id'
+target_col: 'target'
+test_size: 0.3
+one_hot_drop: 'if_binary'

@@ -1,0 +1,83 @@
+schema: '2.0'
+stages:
+  get_data:
+    cmd: python scripts/data.py
+    deps:
+    - path: scripts/data.py
+      hash: md5
+      md5: 52c3049a7c3ab4b30b0b844cd12e6953
+      size: 988
+    params:
+      params.yaml:
+        index_col: flat_id
+    outs:
+    - path: data/initial_data.csv
+      hash: md5
+      md5: c95bb34f1965bdeb6dfb349b134595f1
+      size: 15178817
+      cloud:
+        my_storage:
+          etag: c95bb34f1965bdeb6dfb349b134595f1
+          version_id: 00062DB9928A9907
+  fit_model:
+    cmd: python scripts/fit.py
+    deps:
+    - path: data/initial_data.csv
+      hash: md5
+      md5: c95bb34f1965bdeb6dfb349b134595f1
+      size: 15178817
+    - path: scripts/fit.py
+      hash: md5
+      md5: f540f23672998e8ea173b1c4a7b3beb4
+      size: 1924
+    params:
+      params.yaml:
+        index_col: flat_id
+        one_hot_drop: if_binary
+        target_col: target
+        test_size: 0.3
+    outs:
+    - path: data/test_data.csv
+      hash: md5
+      md5: 323756acce2a46926a25f96be8c34bd2
+      size: 4548334
+      cloud:
+        my_storage:
+          etag: 323756acce2a46926a25f96be8c34bd2
+          version_id: 00062DB9928326F5
+    - path: models/fitted_model.pkl
+      hash: md5
+      md5: 4416584e450f7e65474a1c91bd29c9bc
+      size: 4862
+      cloud:
+        my_storage:
+          etag: 4416584e450f7e65474a1c91bd29c9bc
+          version_id: 00062DB99278AA9C
+  evaluate_model:
+    cmd: python scripts/evaluate.py
+    deps:
+    - path: data/test_data.csv
+      hash: md5
+      md5: 323756acce2a46926a25f96be8c34bd2
+      size: 4548334
+    - path: models/fitted_model.pkl
+      hash: md5
+      md5: 4416584e450f7e65474a1c91bd29c9bc
+      size: 4862
+    - path: scripts/evaluate.py
+      hash: md5
+      md5: 181bdcd472e2e4d9f9ad6a16732b354f
+      size: 845
+    params:
+      params.yaml:
+        index_col: flat_id
+        target_col: target
+    outs:
+    - path: cv_results/cv_res.json
+      hash: md5
+      md5: b8b7444762a89048aa5d204b8a0ad520
+      size: 33
+      cloud:
+        my_storage:
+          etag: b8b7444762a89048aa5d204b8a0ad520
+          version_id: 00062DB992772311
