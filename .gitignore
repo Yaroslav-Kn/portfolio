@@ -170,6 +170,5 @@ catboost_info/
 log/
 logs/
 
-*.png
 *.csv
 *.parquet
